@@ -23,7 +23,6 @@ def inserir():
     # Renderiza a página de inserção
     return render_template('inserir.html')
 
-
 @app.route("/editar/<int:codigo>", methods=['GET', 'POST'])
 def editar(codigo):
     if request.method == 'POST':

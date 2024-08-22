@@ -1,38 +1,42 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Jogos </title>
-    <link rel="stylesheet" href=../static/css/style.css>
+    <title>Jogos</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 <main>
     <section>
-    <h1>Lista de Jogos</h1>
-    <a href="/inserir">Adicionar Novo Jogo</a>
-    <table>
-        <tr>
-            <th>Nome do Jogo</th>
-            <th>Gênero</th>
-            <th>Tamanho (MB)</th>
-            <th>Ações</th>
-        </tr>
-        <tbody>
-            {% for game in game %}
+        <h1>Lista de Jogos</h1>
+        <table>
             <tr>
-                <td>{{ game.name }}</td>
-                <td>{{ game.genero }}</td>
-                <td>{{ game.tamanho }}</td>
-                <td>
-                    <a href="/editar/{{ game.codigo }}">Editar</a>
-                    <a href="/apagar/{{ game.codigo }}">Excluir</a>
-                </td>
+                <th>Nome do Jogo</th>
+                <th>Gênero</th>
+                <th>Tamanho (MB)</th>
+                <th>Ações</th>
             </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            <tbody>
+                {% for game in game %}
+                <tr>
+                    <td>{{ game.name }}</td>
+                    <td>{{ game.genero }}</td>
+                    <td>{{ game.tamanho }}</td>
+                    <td>
+                        <a href="/editar/{{ game.codigo }}" title="Editar">
+                            <i class="fas fa-edit"></i> Editar
+                        </a>
+                        <a href="/apagar/{{ game.codigo }}" title="Excluir">
+                            <i class="fas fa-trash"></i> Excluir
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/inserir">Adicionar Novo Jogo</a>
     </section>
 </main>
 </body>
